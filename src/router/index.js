@@ -19,6 +19,11 @@ const routes = [
     path: "/v-model",
     name: "model",
     component: () => import("../views/04_v-model/Father.vue")
+  },
+  {
+    path: "/useAttrs",
+    name: "useAttrs",
+    component: () => import("../views/05_useAttrs/Father.vue")
   }
 ]
 

@@ -223,7 +223,32 @@ const handler = () => {
 
 下面的写法就是上面写法的语法糖形式。在Element-plus中大多数是这样用的。这里注意一下：给emits命名的时候，必须得是"update:xxxx"。
 
+### 5、useAttrs(Vue3)
 
+vue3新增的
 
+这个方法可以获取到组件标签身上的属性和属性值，还有事件也可以接收。使用useAttrs接收了标签的属性，props就接收不到了，如果props接受了，useAttrs接收不到了。（props优先级高）
 
+Father.vue
+
+```js
+<Son1 type="primary"></Son1>
+```
+
+Son.vue
+
+```js
+<template>
+  <div id="useAttr-son1">
+    <el-button :="$attrs">我是Son</el-button>
+		//这里就相当于 v-bind="{type:'primary'}"
+  </div>
+</template>
+
+<script setup>
+import { useAttrs } from "vue";
+let $attrs = useAttrs();
+console.log($attrs);
+</script>
+```
 
